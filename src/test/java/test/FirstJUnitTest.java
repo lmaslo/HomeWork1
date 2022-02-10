@@ -16,14 +16,13 @@ public class FirstJUnitTest {
 
     @Test
     void successFillTest() {
+        $(".main-header").shouldHave(text("Practice Form"));
+
         $("#firstName").setValue("Lena");
         $("#lastName").setValue("Masloboishchikova");
         $("#userEmail").setValue("lMaslo@mail.ru");
         //gender
         //$("enterWrapper").selectRadio("Female");
-
-
-
         $("#userNumber").setValue("8945632145");
         //date
         //Subjects
