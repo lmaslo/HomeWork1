@@ -20,31 +20,46 @@ public class FirstJUnitTest {
 
     @Test
     void successFillTest() {
-
+        //check form
         open("/automation-practice-form");
         $(".main-header").shouldHave(text("Practice Form"));
 
+        //input data
         $("#firstName").setValue("Lena");
         $("#lastName").setValue("Masloboishchikova");
         $("#userEmail").setValue("lMaslo@mail.ru");
-        //gender, как работает selectRadio("Female")
+        //разобраться с selectRadio("Female")
         $(byText("Female")).click();
-        $("#userNumber").setValue("8945632145");
+        $("#userNumber").setValue("8999932145");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__year-select").selectOptionByValue("1993");
         $(".react-datepicker__month-select").selectOptionByValue("8");
         $(byText("10")).click();
         $("#subjectsInput").setValue("English").pressEnter();
         $(byText("Sports")).click();
-        //Picture
-
-
+        $("#uploadPicture").uploadFromClasspath("1.jpg");
         $("#currentAddress").setValue("Address 1 2 3 4 5");
-        //state
-       // $(".css-1hwfws3").click();
-       // $(".css-yk16xz-control").selectOptionByValue("NCR");
+        $("#state").click();
+        $(byText("NCR")).click();
+        $("#city").click();
+        $(byText("Delhi")).click();
 
-        //city
+        $("#submit").click();
+
+        //check data
+        $(".modal-header").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(
+                text("Lena Masloboishchikova"),
+                text("lMaslo@mail.ru"),
+                text("Female"),
+                text("8999932145"),
+                text("10 September,1993"),
+                text("English"),
+                text("Sports"),
+                text("1.jpg"),
+                text("Address 1 2 3 4 5"),
+                text("NCR Delhi")
+        );
 
 
     }
