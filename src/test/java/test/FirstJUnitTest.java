@@ -13,6 +13,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FirstJUnitTest {
     @BeforeAll
@@ -64,8 +65,13 @@ public class FirstJUnitTest {
                 text("Address 1 2 3 4 5"),
                 text("NCR Delhi")
         );
-
-
     }
+
+    //добавлен тест для 8 домашки
+    @Test
+    void assertTrueTest() {
+        assertTrue(3 > 1);
+    }
+
 }
 
